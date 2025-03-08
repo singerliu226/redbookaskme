@@ -4,10 +4,6 @@ from langchain.output_parsers import PydanticOutputParser
 from langchain.prompts import ChatPromptTemplate
 from xiaohongshu_model import Xiaohongshu
 
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
 def generate_xiaohongshu(theme, api_key):
     prompt = ChatPromptTemplate.from_messages([
         ("system", system_template_text),
@@ -21,5 +17,3 @@ def generate_xiaohongshu(theme, api_key):
         "theme": theme
     })
     return result
-
-print(generate_xiaohongshu("大模型", os.getenv("OPENAI_API_KEY")))
